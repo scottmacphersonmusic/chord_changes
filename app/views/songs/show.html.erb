@@ -1,5 +1,5 @@
 <h1><%= @song.title %></h1>
-<p>By: <%= @song.composer%></p>
+<p>by <%= @song.composer%></p>
 <div>
 <%= link_to "Back", songs_path, class: "button" %> |
 <%= link_to "Edit", edit_song_path(@song), class: "button" %> |

@@ -3,7 +3,7 @@
 <ul>
 <% @songs.each do |song| %>
   <li>"<%= song.title %>"</li>
-  <li>by: <%= song.composer %></li>
+  <li>by <%= song.composer %></li>
   <br/>
   <li>
     <div class="crud_links">

@@ -25,4 +25,15 @@ feature "songs have crud actions" do
     page.must_have_content "Song successfully updated!"
     page.must_have_content "Share-a-key"
   end
+
+  scenario "delete song" do
+    # Given an existing song
+    visit root_path
+    # When I click delete
+    first('.crud_links').click_link('Delete')
+    # The song is deleted
+    page.must_have_content "Song successfully deleted!"
+    page.wont_have_content "Confirmation"
+    page.wont_have_content "by Charlie Parker"
+  end
 end
