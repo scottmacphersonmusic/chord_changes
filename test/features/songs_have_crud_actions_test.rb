@@ -13,4 +13,16 @@ feature "songs have crud actions" do
     page.must_have_content "New song created!"
     page.must_have_content "Miles Davis"
   end
+
+  scenario "edit song" do
+    # Given an existing song
+    visit root_path
+    # When I click 'edit' and submit some changes
+    first('.crud_links').click_link('Edit')
+    fill_in "Title", with: "Share-a-key"
+    click_on "Update Song"
+    # The song is edited
+    page.must_have_content "Song successfully updated!"
+    page.must_have_content "Share-a-key"
+  end
 end
