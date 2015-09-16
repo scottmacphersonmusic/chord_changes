@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916011116) do
+ActiveRecord::Schema.define(version: 20150916174709) do
+
+  create_table "chords", force: :cascade do |t|
+    t.string   "pitch"
+    t.string   "quality"
+    t.integer  "measure"
+    t.integer  "sequence"
+    t.integer  "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "chords", ["song_id"], name: "index_chords_on_song_id"
 
   create_table "songs", force: :cascade do |t|
     t.string   "title"
