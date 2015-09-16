@@ -1,0 +1,66 @@
+cher_1_1:
+  pitch: Bb
+  quality: maj7
+  measure: 1
+  sequence: 1
+  song: cherokee # do i need this?
+
+cher_2_1:
+  pitch: F
+  quality: m7
+  measure: 2
+  sequence: 1
+
+cher_2_2:
+  pitch: Bb
+  quality: 7
+  measure: 2
+  sequence: 2
+
+cher_3_1:
+  pitch: Eb
+  quality: maj7
+  measure: 3
+  sequence: 1
+
+cher_4_1:
+  pitch: Ab
+  quality: 7(\#11)
+  measure: 4
+  sequence: 1
+
+cher_5_1:
+  pitch: Bb
+  quality: maj7
+  measure: 5
+  sequence: 1
+
+cher_6_1:
+  pitch: C
+  quality: 7
+  measure: 6
+  sequence: 1
+
+cher_7_1:
+  pitch: C
+  quality: m7
+  measure: 7
+  sequence: 1
+
+cher_7_2:
+  pitch: G
+  quality: 7
+  measure: 7
+  sequence: 2
+
+cher_8_1:
+  pitch: C
+  quality: 7
+  measure: 8
+  sequence: 1
+
+cher_8_2:
+  pitch: F
+  quality: 7
+  measure: 8
+  sequence: 2

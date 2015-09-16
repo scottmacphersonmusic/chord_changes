@@ -12,6 +12,7 @@ feature "chords have crud actions" do
     fill_in "Sequence", with: "1"
     click_on "Create Chord"
     # A chord is created
+    save_and_open_page
     page.must_have_content "Chord successfully created!"
     page.must_have_content "Bbmaj7"
   end

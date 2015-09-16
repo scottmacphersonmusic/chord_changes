@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :songs
+  # get 'chords/show'
+
+  # get 'chords/new'
+
+  # get 'chords/edit'
+
+  resources :songs do
+    resources :chords
+  end
+
   root 'songs#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
