@@ -1,6 +1,6 @@
 class ChordsController < ApplicationController
   before_action :set_song
-  before_action :set_chord, only: [:show, :edit]
+  before_action :set_chord, only: [:show, :edit, :destroy]
 
   def show
   end
@@ -30,6 +30,12 @@ class ChordsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @chord.destroy
+    flash[:success] = "Chord successfully deleted!"
+    redirect_to @song
   end
 
   private

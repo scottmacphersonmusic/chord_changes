@@ -28,7 +28,7 @@ cher_3_1:
 
 cher_4_1:
   pitch: Ab
-  quality: 7(\#11)
+  quality: '7(#11)'
   measure: 4
   sequence: 1
   song: cherokee

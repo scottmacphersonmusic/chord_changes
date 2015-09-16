@@ -17,7 +17,7 @@ feature "chords have crud actions" do
   end
 
   scenario "update chord" do
-    # Given an existing chord
+    # Given an existing chord's show page
     song = songs(:cherokee)
     chord = chords(:cher_1_1)
     visit song_chord_path(song, chord)
@@ -33,13 +33,33 @@ feature "chords have crud actions" do
   end
 
   scenario "delete chord" do
+    # Given an existing chord's show page
+    song = songs(:cherokee)
+    chord = chords(:cher_4_1)
+    visit song_chord_path(song, chord)
+    # When I click delete
+    click_on "Delete"
+    # Then the chord is deleted
+    page.must_have_content "Chord successfully deleted!"
+    page.wont_have_content "Ab7(#9)"
   end
 
   # - - - Unhappy Paths - - -
 
   scenario "attempt to create invalid chord" do
+    # Given a new chord form
+
+    # When I submit invalid data
+
+    # Then no chord is created and I see an error message
   end
 
   scenario "attempt to update invalid chord" do
+    # Given a chord edit form
+
+    # When I submit invalid data
+
+    # Then the chord is not updated and I seen an error messag
+
   end
 end
