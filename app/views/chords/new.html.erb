@@ -1,21 +1,7 @@
-<h1>New Chord for "@song"</h1>
+<h1>New Chord for "<%= @song.title %>"</h1>
 
-<%= form_for [@song, @chord] do |f| %>
+<%= render 'chords/shared/form' %>
 
-  <%= f.label :pitch  %><br/>
-  <%= f.text_field :pitch %><br/>
-
-  <%= f.label :quality %><br/>
-  <%= f.text_field :quality %><br/>
-
-  <%= f.label :measure %><br/>
-  <%= f.text_field :measure %><br/>
-
-  <%= f.label :sequence %><br/>
-  <%= f.text_field :sequence %><br/>
-
-  <%= f.submit %>
-
-<% end %>
+<hr/>
 
 <%= link_to "Back", @song %>
