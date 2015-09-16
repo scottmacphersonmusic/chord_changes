@@ -15,6 +15,10 @@
 
 <ul>
   <% @song.chords.each do |chord| %>
-    <li>| <%= chord.pitch %><em><%= chord.quality %></em> |</li>
+  <li>
+    <%= link_to song_chord_path(@song, chord) do %>
+    | <%= chord.pitch %><em><%= chord.quality %></em> |
+    <% end %>
+    </li>
   <% end %>
 </ul>
