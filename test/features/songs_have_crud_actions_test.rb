@@ -1,7 +1,5 @@
 require "test_helper"
 
-
-
 feature "songs have crud actions" do
   scenario "create song" do
     # Given a song index page at the root route
