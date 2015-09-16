@@ -1,5 +1,7 @@
 require "test_helper"
 
+
+
 feature "songs have crud actions" do
   scenario "create song" do
     # Given a song index page at the root route
@@ -14,18 +16,6 @@ feature "songs have crud actions" do
     page.must_have_content "Miles Davis"
   end
 
-  scenario "attempt to create invalid song" do
-    # Given a new song form
-    visit new_song_path
-    # When I try to create a new, invalid song
-    fill_in "Title", with: ""
-    fill_in "Composer", with: ""
-    # The song is not created and I see an error message
-    current_path.must_equal new_song_path
-    page.must_have_content "Song not created."
-    page.must_have_content "?error?"
-  end
-
   scenario "update song" do
     # Given an existing song
     visit root_path
@@ -38,18 +28,6 @@ feature "songs have crud actions" do
     page.must_have_content "Share-a-key"
   end
 
-  scenario "attempt to edit invalid song" do
-    # Given a new song edit form
-    song = songs(:all_the_things)
-    visit edit_song_path(song)
-    # When I try update an invalid song
-    fill_in "Composer", with: ""
-    # The song is not created and I see an error message
-    current_path.must_equal edit_song_path(song)
-    page.must_have_content "Song not updated."
-    page.must_have_content "?error?"
-  end
-
   scenario "delete song" do
     # Given an existing song
     visit root_path
@@ -59,5 +37,30 @@ feature "songs have crud actions" do
     page.must_have_content "Song successfully deleted!"
     page.wont_have_content "Confirmation"
     page.wont_have_content "by Charlie Parker"
+  end
+
+  # - - - Unhappy Paths - - -
+
+  scenario "attempt to create invalid song" do
+    # Given a new song form
+    visit new_song_path
+    # When I try to create a new, invalid song
+    fill_in "Composer", with: ""
+    click_on "Create Song"
+    # The song is not created and I see an error message
+    page.must_have_content "prohibited this song from being saved:"
+    page.must_have_content "Title can't be blank"
+  end
+
+    scenario "attempt to edit invalid song" do
+    # Given a new song edit form
+    song = songs(:all_the_things)
+    visit edit_song_path(song)
+    # When I try update an invalid song
+    fill_in "Composer", with: ""
+    click_on "Update Song"
+    # The song is not created and I see an error message
+    page.must_have_content "prohibited this song from being saved:"
+    page.must_have_content "Composer can't be blank"
   end
 end
