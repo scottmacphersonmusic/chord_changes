@@ -1,2 +1,8 @@
 <h1><%= @song.title %></h1>
-<p>Composer:  <%= @song.composer%></p>
+<p>By: <%= @song.composer%></p>
+<div>
+<%= link_to "Back", songs_path, class: "button" %> |
+<%= link_to "Edit", edit_song_path(@song), class: "button" %> |
+<%= link_to("Delete", song_path(@song), class: "button", method:
+    :delete, data: { confirm: 'Are you sure?' }) %>
+</div>
