@@ -53,7 +53,7 @@ feature "chords have crud actions" do
     # When I submit invalid data
     fill_in "Pitch", with: ""
     fill_in "Measure", with: "ten"
-    fill_in "Sequence", with: 1
+    fill_in "Sequence", with: "zebra"
     click_on "Create Chord"
     # Then no chord is created and I see an error message
     page.must_have_content "prohibited this chord from being saved:"
@@ -63,10 +63,14 @@ feature "chords have crud actions" do
 
   scenario "attempt to update invalid chord" do
     # Given a chord edit form
-
+    song = songs(:cherokee)
+    chord = chords(:cher_1_1)
+    visit edit_song_chord_path(song, chord)
     # When I submit invalid data
-
+    fill_in "Sequence", with: ""
+    click_on "Update Chord"
     # Then the chord is not updated and I seen an error messag
-
+    page.must_have_content "prohibited this chord from being saved:"
+    page.must_have_content "Sequence can't be blank"
   end
 end
