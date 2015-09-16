@@ -48,10 +48,17 @@ feature "chords have crud actions" do
 
   scenario "attempt to create invalid chord" do
     # Given a new chord form
-
+    song = songs(:cherokee)
+    visit new_song_chord_path(song)
     # When I submit invalid data
-
+    fill_in "Pitch", with: ""
+    fill_in "Measure", with: "ten"
+    fill_in "Sequence", with: 1
+    click_on "Create Chord"
     # Then no chord is created and I see an error message
+    page.must_have_content "prohibited this chord from being saved:"
+    page.must_have_content "Pitch can't be blank"
+    page.must_have_content "Measure is not a number"
   end
 
   scenario "attempt to update invalid chord" do
