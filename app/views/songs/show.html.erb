@@ -1,0 +1,26 @@
+<h1>'<em><%= @song.title %>'</em></h1>
+<p>by <%= @song.composer%></p>
+<div class="crud-links">
+<%= link_to "Back", songs_path, class: "button" %> |
+<%= link_to "Edit", edit_song_path(@song), class: "button" %> |
+<%= link_to("Delete", song_path(@song), class: "button", method:
+    :delete, data: { confirm: 'Are you sure?' }) %>
+</div>
+
+<hr/>
+
+<div>
+  <%= link_to "New Chord", new_song_chord_path(@song.id) %>
+</div>
+
+
+<h2>Chords</h2>
+<ul id="song_chords">
+  <% @chords.each do |chord|%>
+    <li>
+      <%= link_to song_chord_path(@song, chord) do %>
+        | <%= chord.pitch %><em><%= chord.quality %></em> |
+      <% end %>
+    </li>
+    <% end %>
+</ul>

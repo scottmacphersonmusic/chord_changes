@@ -1,0 +1,29 @@
+<% if @chord.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@chord.errors.count, "error") %> prohibited this chord from being saved:</h2>
+
+    <ul>
+      <% @chord.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@song, @chord] do |f| %>
+
+  <%= f.label :pitch  %><br/>
+  <%= f.text_field :pitch %><br/>
+
+  <%= f.label :quality %><br/>
+  <%= f.text_field :quality %><br/>
+
+  <%= f.label :measure %><br/>
+  <%= f.text_field :measure %><br/>
+
+  <%= f.label :sequence %><br/>
+  <%= f.text_field :sequence %><br/>
+
+  <%= f.submit %>
+
+<% end %>

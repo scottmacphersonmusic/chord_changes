@@ -1,0 +1,12 @@
+<h1><%= @chord.pitch %><em><%= @chord.quality %></em></h1>
+<ul>
+  <li>Measure: <%= @chord.measure %></li>
+  <li>Sequence: <%= @chord.sequence %></li>
+</ul>
+
+<div class="crud-links">
+<%= link_to "Back", @song, class: "button" %> |
+<%= link_to "Edit", edit_song_chord_path(@song, @chord), class: "button" %> |
+<%= link_to("Delete", song_chord_path(@song, @chord), class: "button", method:
+    :delete, data: { confirm: 'Are you sure?' }) %>
+</div>
