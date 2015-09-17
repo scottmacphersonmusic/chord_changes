@@ -50,7 +50,7 @@ feature "songs have crud actions" do
     page.must_have_content "Title can't be blank"
   end
 
-    scenario "attempt to edit invalid song" do
+  scenario "attempt to edit invalid song" do
     # Given a new song edit form
     song = songs(:all_the_things)
     visit edit_song_path(song)
