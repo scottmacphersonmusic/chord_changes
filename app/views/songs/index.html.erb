@@ -1,18 +1,5 @@
 <%= link_to "New Song", new_song_path %>
 
 <ul>
-<% @songs.each do |song| %>
-  <li>'<em><%= song.title %></em>'</li>
-  <li>by <%= song.composer %></li>
-  <br/>
-  <li>
-    <div class="crud_links">
-      <%= link_to "Show", song_path(song), class: "button" %> |
-      <%= link_to "Edit", edit_song_path(song), class: "button" %> |
-      <%= link_to("Delete", song_path(song), class: "button", method:
-          :delete, data: { confirm: 'Are you sure?' }) %>
-    </div>
-  </li>
-  <hr/>
-<% end %>
+  <%= render @songs %>
 </ul>
