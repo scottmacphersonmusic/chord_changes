@@ -16,7 +16,10 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-      redirect_to @song, notice: "New song created!"
+      respond_to do |format|
+        format.html { redirect_to @song, notice: "New song created!" }
+        format.js
+      end
     else
       render 'new'
     end
