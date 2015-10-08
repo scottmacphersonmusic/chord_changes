@@ -1,0 +1,2 @@
+$("form#edit_song_<%= @song.id %>").remove();
+$('ul').append("<%= j render(@song) %>");
