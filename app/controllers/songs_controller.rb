@@ -15,13 +15,19 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    if @song.save
-      respond_to do |format|
+    respond_to do |format|
+      if @song.save
         format.html { redirect_to @song, notice: "New song created!" }
         format.js
+      else
+        format.html { render 'new' }
+        format.js do
+          unless @song.save
+            render text: @song.errors.full_messages.join,
+                   status: :unprocessable_entity
+          end
+        end
       end
-    else
-      render 'new'
     end
   end
 
@@ -29,10 +35,19 @@ class SongsController < ApplicationController
   end
 
   def update
-    if @song.update(song_params)
-      redirect_to @song, notice: "Song successfully updated!"
-    else
-      render 'edit'
+    respond_to do |format|
+      if @song.update(song_params)
+        format.html { redirect_to @song, notice: "Song successfully updated!" }
+        format.js
+      else
+        format.html { render 'edit' }
+        format.js do
+          unless @song.save
+            render text: @song.errors.full_messages.join,
+                   status: :unprocessable_entity
+          end
+        end
+      end
     end
   end
 
