@@ -2,6 +2,8 @@
 By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 ### Description
 **chord_changes** is a small app designed to illustrate two models sharing `belongs_to` and `has_many` associations with one another.
+### New Feature!
+Creating, updating and deleting songs has been AJAXified!  Behold the magnificence!
 ### Screenshot
 ![Song has_many Chords](app/assets/images/songs_have_chords.png)
 ### Usage
